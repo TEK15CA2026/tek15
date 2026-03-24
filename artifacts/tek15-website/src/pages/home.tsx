@@ -1,4 +1,5 @@
-import logoSrc from "@assets/TEK15_ORIGINAL_1774317532492.jpg";
+import squareLogoSrc from "@assets/TEK15_ORIGINAL_1774317532492.jpg";
+import wideLogo from "@assets/TEK15_1774318570933.png";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
     const form = e.currentTarget;
     const data = new FormData(form);
     try {
-      const res = await fetch("https://formspree.io/f/william@tek15.ca", {
+      const res = await fetch("https://formspree.io/william@tek15.ca", {
         method: "POST",
         body: data,
         headers: { Accept: "application/json" },
@@ -40,9 +41,9 @@ export default function Home() {
       {/* NAV */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#0a0a0a]/95 backdrop-blur-md border-b border-white/5" : "bg-transparent"}`}>
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="#home" className="flex items-center gap-3">
-            <img src={logoSrc} alt="TEK15" className="h-10 w-10 object-contain rounded-sm" />
-            <span className="text-sm tracking-[0.2em] uppercase text-white/70 font-light hidden sm:block">Automotive Concierge</span>
+          <a href="#home" className="flex items-center gap-4">
+            <img src={squareLogoSrc} alt="TEK15" className="h-9 w-9 object-contain rounded-sm" />
+            <img src={wideLogo} alt="TEK15" className="h-7 object-contain hidden sm:block" />
           </a>
 
           {/* Desktop nav */}
@@ -100,45 +101,64 @@ export default function Home() {
         id="home"
         className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
       >
-        {/* Background gradient + overlay */}
+        {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0f0f0f] to-[#0a0a0a]" />
-        {/* Radial light effect */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_60%,rgba(201,168,76,0.06),transparent)]" />
+        {/* Night car image as subtle hero bg */}
+        <div
+          className="absolute inset-0 opacity-20 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url(/nightcar.jpg)" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-[#0a0a0a]/80" />
+        {/* Radial gold glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_60%,rgba(201,168,76,0.07),transparent)]" />
         {/* Grid texture */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
+        <div className="absolute inset-0 opacity-[0.025]" style={{
           backgroundImage: `linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)`,
           backgroundSize: "60px 60px"
         }} />
-
         {/* Decorative line */}
-        <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c9a84c]/20 to-transparent" />
+        <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c9a84c]/15 to-transparent" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-          {/* Logo */}
-          <div className="mb-10 flex justify-center">
-            <div className="relative">
-              <div className="absolute inset-0 rounded-full blur-2xl bg-[#c9a84c]/10 scale-150" />
-              <img src={logoSrc} alt="TEK15" className="relative h-24 w-24 object-contain rounded-lg shadow-2xl" />
-            </div>
-          </div>
-
           {/* Eyebrow */}
-          <p className="text-[#c9a84c] text-xs tracking-[0.4em] uppercase mb-6 font-light">
+          <p className="text-[#c9a84c] text-xs tracking-[0.4em] uppercase mb-8 font-light">
             Automotive Concierge & Consulting
           </p>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.05] mb-8">
-            Technical Authority.<br />
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight leading-[1.1] mb-6">
             <span className="font-normal text-white">Tailored Care.</span>
-            <br />
-            <span className="text-[#c9a84c] font-semibold">TEK15.</span>
           </h1>
+
+          {/* Wide PNG logo as "TEK15" brand mark */}
+          <div className="flex justify-center mb-10">
+            <div className="relative">
+              <div className="absolute inset-0 blur-3xl bg-[#c9a84c]/8 scale-150" />
+              <img
+                src={wideLogo}
+                alt="TEK15"
+                className="relative h-16 sm:h-20 md:h-24 object-contain drop-shadow-2xl"
+              />
+            </div>
+          </div>
 
           {/* Tagline */}
           <p className="text-white/40 text-sm sm:text-base tracking-widest uppercase font-light mb-12 max-w-xl mx-auto">
             Expert guidance for Mercedes-Benz&nbsp;·&nbsp;Porsche&nbsp;·&nbsp;BMW&nbsp;·&nbsp;Audi
           </p>
+
+          {/* Credentials badges */}
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+            {["C.A.L.E Certified", "Red Seal 310S"].map((cred) => (
+              <span
+                key={cred}
+                className="inline-flex items-center gap-2 px-4 py-1.5 border border-[#c9a84c]/25 text-[#c9a84c]/70 text-xs tracking-[0.15em] uppercase rounded-sm"
+              >
+                <span className="w-1 h-1 rounded-full bg-[#c9a84c]/60" />
+                {cred}
+              </span>
+            ))}
+          </div>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -158,48 +178,108 @@ export default function Home() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-40">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-30">
           <div className="w-px h-12 bg-gradient-to-b from-transparent via-white to-transparent" />
         </div>
       </section>
 
       {/* PHILOSOPHY */}
-      <section id="philosophy" className="py-32 px-6 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0d0d0d] to-[#0a0a0a]" />
-        <div className="relative max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            {/* Left — label + headline */}
-            <div>
-              <p className="text-[#c9a84c] text-xs tracking-[0.4em] uppercase mb-5 font-light">Our Philosophy</p>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-light leading-tight mb-0">
-                White-Glove Care.<br />
-                <span className="text-white/40">No Compromises.</span>
-              </h2>
-            </div>
+      <section id="philosophy" className="py-0 relative overflow-hidden">
+        {/* Full-width image strip */}
+        <div className="relative h-72 sm:h-96 overflow-hidden">
+          <img
+            src="/engine.jpg"
+            alt="European luxury engine"
+            className="w-full h-full object-cover object-center"
+            onError={(e) => {
+              (e.target as HTMLImageElement).style.display = "none";
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-transparent to-[#0a0a0a]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/70 via-transparent to-[#0a0a0a]/70" />
+        </div>
 
-            {/* Right — text */}
-            <div className="space-y-6 text-white/50 text-sm sm:text-base leading-relaxed font-light">
-              <p>
-                TEK15 was built on a single belief: owners of exceptional vehicles deserve an equally exceptional level of care. We reject the one-size-fits-all model of traditional automotive service.
-              </p>
-              <p>
-                Our approach prioritizes <span className="text-white/80">deep technical mastery</span> — years of hands-on experience with European engineering — paired with radical transparency. You'll always understand exactly what's happening with your vehicle, and why.
-              </p>
-              <p>
-                From routine maintenance to complex diagnostics, every interaction is handled with the precision and discretion that your investment demands.
-              </p>
+        <div className="py-24 px-6 relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0d0d0d] to-[#0a0a0a]" />
+          <div className="relative max-w-7xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-16 items-start">
 
-              <div className="grid grid-cols-3 gap-6 pt-4">
-                {[
-                  { value: "100%", label: "Transparent Reporting" },
-                  { value: "OEM", label: "Grade Standards" },
-                  { value: "1-on-1", label: "Dedicated Attention" },
-                ].map(({ value, label }) => (
-                  <div key={label} className="border-t border-[#c9a84c]/20 pt-4">
-                    <p className="text-[#c9a84c] text-xl font-semibold mb-1">{value}</p>
-                    <p className="text-white/30 text-xs tracking-wider uppercase">{label}</p>
-                  </div>
-                ))}
+              {/* Left — image + headline */}
+              <div>
+                <p className="text-[#c9a84c] text-xs tracking-[0.4em] uppercase mb-5 font-light">Our Philosophy</p>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-light leading-tight mb-8">
+                  White-Glove Care.<br />
+                  <span className="text-white/40">No Compromises.</span>
+                </h2>
+
+                {/* TEK15 PNG logo displayed in philosophy section */}
+                <div className="relative overflow-hidden rounded-sm border border-white/6">
+                  <img
+                    src={wideLogo}
+                    alt="TEK15"
+                    className="w-full object-contain bg-black p-10 sm:p-14"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
+                </div>
+
+                {/* Credentials */}
+                <div className="mt-8 flex flex-wrap gap-3">
+                  {[
+                    { label: "C.A.L.E Certified", desc: "Canadian Automotive & Licensing Expert" },
+                    { label: "Red Seal 310S", desc: "Interprovincial Standards Program" },
+                  ].map(({ label, desc }) => (
+                    <div key={label} className="flex items-start gap-3 border border-[#c9a84c]/20 rounded-sm px-4 py-3 bg-[#c9a84c]/3">
+                      <div className="mt-0.5 w-5 h-5 rounded-full border border-[#c9a84c]/40 flex items-center justify-center flex-shrink-0">
+                        <svg className="w-2.5 h-2.5 text-[#c9a84c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-[#c9a84c] text-xs tracking-widest uppercase font-medium">{label}</p>
+                        <p className="text-white/30 text-xs mt-0.5">{desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right — text */}
+              <div className="space-y-6 text-white/50 text-sm sm:text-base leading-relaxed font-light md:pt-16">
+                <p>
+                  TEK15 was built on a single belief: owners of exceptional vehicles deserve an equally exceptional level of care. We reject the one-size-fits-all model of traditional automotive service.
+                </p>
+                <p>
+                  Our approach prioritizes <span className="text-white/80">deep technical mastery</span> — years of hands-on experience with European engineering — paired with radical transparency. You'll always understand exactly what's happening with your vehicle, and why.
+                </p>
+                <p>
+                  From routine maintenance to complex diagnostics, every interaction is handled with the precision and discretion that your investment demands.
+                </p>
+
+                {/* Interior image */}
+                <div className="relative overflow-hidden rounded-sm border border-white/6 mt-2">
+                  <img
+                    src="/interior.jpg"
+                    alt="Luxury vehicle interior"
+                    className="w-full h-52 object-cover object-center"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = "none";
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+                </div>
+
+                <div className="grid grid-cols-3 gap-6 pt-4">
+                  {[
+                    { value: "100%", label: "Transparent Reporting" },
+                    { value: "OEM", label: "Grade Standards" },
+                    { value: "1-on-1", label: "Dedicated Attention" },
+                  ].map(({ value, label }) => (
+                    <div key={label} className="border-t border-[#c9a84c]/20 pt-4">
+                      <p className="text-[#c9a84c] text-xl font-semibold mb-1">{value}</p>
+                      <p className="text-white/30 text-xs tracking-wider uppercase">{label}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -260,17 +340,13 @@ export default function Home() {
                 key={title}
                 className="group relative border border-white/6 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#c9a84c]/25 transition-all duration-500 rounded-sm p-8"
               >
-                {/* Gold accent top bar */}
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c9a84c]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
                 <div className="text-[#c9a84c]/70 group-hover:text-[#c9a84c] transition-colors duration-300 mb-6">
                   {icon}
                 </div>
-
                 <h3 className="text-white text-lg font-light tracking-wide mb-1">{title}</h3>
                 <p className="text-[#c9a84c]/60 text-xs tracking-widest uppercase mb-5">{subtitle}</p>
                 <p className="text-white/40 text-sm leading-relaxed font-light mb-7">{description}</p>
-
                 <ul className="space-y-2">
                   {highlights.map((h) => (
                     <li key={h} className="flex items-center gap-3 text-white/35 text-xs">
@@ -281,6 +357,25 @@ export default function Home() {
                 </ul>
               </div>
             ))}
+          </div>
+
+          {/* Services detail photo */}
+          <div className="mt-16 relative overflow-hidden rounded-sm border border-white/5 h-64 sm:h-80">
+            <img
+              src="/detail.jpg"
+              alt="Luxury automotive detail"
+              className="w-full h-full object-cover object-center"
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = "none";
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/80 via-transparent to-[#0a0a0a]/80" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-center">
+                <p className="text-[#c9a84c] text-xs tracking-[0.4em] uppercase mb-3 font-light">Precision in every detail</p>
+                <img src={wideLogo} alt="TEK15" className="h-10 object-contain mx-auto opacity-80" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -316,7 +411,7 @@ export default function Home() {
                 <label className="text-white/40 text-xs tracking-[0.15em] uppercase">Email Address</label>
                 <input
                   type="email"
-                  name="email"
+                  name="_replyto"
                   required
                   placeholder="you@example.com"
                   className="bg-white/[0.03] border border-white/10 focus:border-[#c9a84c]/50 text-white placeholder-white/20 rounded-sm px-4 py-3 text-sm outline-none transition-colors duration-300"
@@ -346,6 +441,9 @@ export default function Home() {
               />
             </div>
 
+            {/* Hidden Formspree subject */}
+            <input type="hidden" name="_subject" value="New Consultation Request — TEK15.CA" />
+
             {formStatus === "success" && (
               <div className="border border-[#c9a84c]/30 bg-[#c9a84c]/5 rounded-sm px-5 py-4 text-[#c9a84c] text-sm tracking-wide">
                 Thank you — your request has been received. We'll be in touch shortly.
@@ -354,7 +452,7 @@ export default function Home() {
 
             {formStatus === "error" && (
               <div className="border border-red-500/30 bg-red-500/5 rounded-sm px-5 py-4 text-red-400 text-sm">
-                Something went wrong. Please try again or email us directly.
+                Something went wrong. Please try again or email william@tek15.ca directly.
               </div>
             )}
 
@@ -375,24 +473,39 @@ export default function Home() {
 
       {/* FOOTER */}
       <footer className="border-t border-white/6 py-12 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <img src={logoSrc} alt="TEK15" className="h-8 w-8 object-contain rounded-sm opacity-70" />
-            <span className="text-white/30 text-xs tracking-[0.2em] uppercase">TEK15.CA</span>
+        <div className="max-w-7xl mx-auto">
+          {/* Top row */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
+            <div className="flex items-center gap-4">
+              <img src={squareLogoSrc} alt="TEK15" className="h-8 w-8 object-contain rounded-sm opacity-60" />
+              <img src={wideLogo} alt="TEK15" className="h-6 object-contain opacity-50" />
+            </div>
+            <div className="flex items-center gap-6">
+              {["Philosophy", "Services", "Contact"].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="text-white/25 hover:text-white/60 text-xs tracking-[0.15em] uppercase transition-colors"
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
           </div>
-          <p className="text-white/20 text-xs tracking-wide">
-            © {new Date().getFullYear()} TEK15 Automotive Concierge. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            {["Philosophy", "Services", "Contact"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="text-white/25 hover:text-white/60 text-xs tracking-[0.15em] uppercase transition-colors"
-              >
-                {item}
-              </a>
-            ))}
+
+          {/* Credentials + copyright */}
+          <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center gap-4">
+              {["C.A.L.E Certified", "Red Seal 310S"].map((cred) => (
+                <span key={cred} className="text-[#c9a84c]/40 text-xs tracking-widest uppercase flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full bg-[#c9a84c]/40" />
+                  {cred}
+                </span>
+              ))}
+            </div>
+            <p className="text-white/20 text-xs tracking-wide">
+              © {new Date().getFullYear()} TEK15 Automotive Concierge. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
