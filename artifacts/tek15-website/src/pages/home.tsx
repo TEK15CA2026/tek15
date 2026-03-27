@@ -103,12 +103,13 @@ export default function Home() {
       >
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0f0f0f] to-[#0a0a0a]" />
-        {/* Night car image as subtle hero bg */}
+        {/* Red Mercedes hero bg — kept dark so colour hints without dominating */}
         <div
-          className="absolute inset-0 opacity-20 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url(/nightcar.jpg)" }}
+          className="absolute inset-0 opacity-35 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url(/nightcar.png)" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-[#0a0a0a]/80" />
+        {/* Gradient overlay — darkens top/bottom, lets the mid-car glow through */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/45 to-[#0a0a0a]/75" />
         {/* Radial gold glow */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_60%,rgba(201,168,76,0.07),transparent)]" />
         {/* Grid texture */}
