@@ -143,9 +143,14 @@ export default function Home() {
           </div>
 
           {/* Tagline */}
-          <p className="text-white/40 text-sm sm:text-base tracking-widest uppercase font-light mb-12 max-w-xl mx-auto">
-            Expert guidance for Mercedes-Benz&nbsp;·&nbsp;Porsche&nbsp;·&nbsp;BMW&nbsp;·&nbsp;Audi
-          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 mb-12">
+            {["Mercedes-Benz", "Porsche", "BMW", "Audi"].map((brand, i, arr) => (
+              <span key={brand} className="flex items-center gap-3">
+                <span className="text-white/40 text-xs sm:text-sm tracking-widest uppercase font-light">{brand}</span>
+                {i < arr.length - 1 && <span className="text-[#c9a84c]/30 text-xs">·</span>}
+              </span>
+            ))}
+          </div>
 
           {/* Credentials badges */}
           <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
