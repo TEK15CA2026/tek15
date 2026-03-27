@@ -122,7 +122,7 @@ export default function Home() {
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           {/* Eyebrow */}
           <p className="text-[#c9a84c] text-xs tracking-[0.4em] uppercase mb-8 font-light">
-            Automotive Concierge & Consulting
+            Automotive Concierge, Consulting, Inspection & Maintenance 
           </p>
 
           {/* Headline */}
@@ -302,7 +302,7 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-light">Our Services</h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
             {[
               {
                 icon: (
@@ -315,6 +315,18 @@ export default function Home() {
                 description:
                   "We handle every aspect of your vehicle's maintenance schedule — from booking and coordination to quality verification and post-service reporting. You stay informed; we handle the details.",
                 highlights: ["Scheduling & coordination", "Service oversight", "Post-service documentation"],
+              },
+              {
+                icon: (
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                ),
+                title: "On-Site Care",
+                subtitle: "Maintenance, diagnostics & repair",
+                description:
+                  "We come to you. Routine maintenance, diagnostic scanning, and general repair carried out at your location — minimal disruption, maximum convenience for your schedule.",
+                highlights: ["Routine maintenance", "Diagnostic scanning", "General repair"],
               },
               {
                 icon: (
@@ -364,21 +376,28 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Services detail photo */}
+          {/* Services banner */}
           <div className="mt-16 relative overflow-hidden rounded-sm border border-white/5 h-64 sm:h-80">
             <img
               src="/detail.jpg"
               alt="Luxury automotive detail"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center opacity-30"
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = "none";
               }}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/80 via-transparent to-[#0a0a0a]/80" />
+            {/* Heavy dark overlay so logo is always legible */}
+            <div className="absolute inset-0 bg-[#0a0a0a]/70" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_50%_50%,rgba(201,168,76,0.05),transparent)]" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">
-                <p className="text-[#c9a84c] text-xs tracking-[0.4em] uppercase mb-3 font-light">Precision in every detail</p>
-                <img src={wideLogo} alt="TEK15" className="h-10 object-contain mx-auto opacity-80" />
+                <p className="text-[#c9a84c]/60 text-xs tracking-[0.4em] uppercase mb-5 font-light">Precision in every detail</p>
+                <img src={wideLogo} alt="TEK15" className="h-14 sm:h-16 object-contain mx-auto drop-shadow-2xl" />
+                <div className="mt-5 flex items-center justify-center gap-4">
+                  <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#c9a84c]/30" />
+                  <span className="text-white/20 text-xs tracking-[0.2em] uppercase font-light">TEK15.CA</span>
+                  <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#c9a84c]/30" />
+                </div>
               </div>
             </div>
           </div>
