@@ -194,7 +194,7 @@ export default function Home() {
         {/* Full-width image strip */}
         <div className="relative h-72 sm:h-96 overflow-hidden">
           <img
-            src="/engine.jpg"
+            src="/engine.png"
             alt="European luxury engine"
             className="w-full h-full object-cover object-center"
             onError={(e) => {
@@ -264,7 +264,7 @@ export default function Home() {
                 {/* Interior image */}
                 <div className="relative overflow-hidden rounded-sm border border-white/6 mt-2">
                   <img
-                    src="/interior.jpg"
+                    src="/interior.png"
                     alt="Luxury vehicle interior"
                     className="w-full h-52 object-cover object-center"
                     onError={(e) => {
