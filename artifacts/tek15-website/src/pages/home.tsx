@@ -1,6 +1,7 @@
 import squareLogoSrc from "@assets/TEK15_ORIGINAL_1774317532492.jpg";
 import wideLogo from "@assets/TEK15_1774318570933.png";
 import { useState, useEffect } from "react";
+import { FaInstagram, FaTiktok, FaFacebook } from "react-icons/fa";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -339,7 +340,7 @@ export default function Home() {
                 subtitle: "Deep-dive technical reports",
                 description:
                   "Comprehensive pre-purchase or annual inspections delivered as detailed technical reports. Know exactly what you're working with — mechanically, cosmetically, and financially.",
-                highlights: ["200+ point inspection", "Photo documentation", "Cost projection report"],
+                highlights: ["120+ point inspection", "Photo documentation", "Vehicle history report & analysis"],
               },
               {
                 icon: (
@@ -505,16 +506,48 @@ export default function Home() {
               <img src={squareLogoSrc} alt="TEK15" className="h-8 w-8 object-contain rounded-sm opacity-60" />
               <img src={wideLogo} alt="TEK15" className="h-6 object-contain opacity-50" />
             </div>
-            <div className="flex items-center gap-6">
-              {["Philosophy", "Services", "Contact"].map((item) => (
+            <div className="flex items-center gap-8">
+              <div className="flex items-center gap-6">
+                {["Philosophy", "Services", "Contact"].map((item) => (
+                  <a
+                    key={item}
+                    href={`#${item.toLowerCase()}`}
+                    className="text-white/25 hover:text-white/60 text-xs tracking-[0.15em] uppercase transition-colors"
+                  >
+                    {item}
+                  </a>
+                ))}
+              </div>
+              <div className="w-px h-4 bg-white/10" />
+              <div className="flex items-center gap-4">
                 <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="text-white/25 hover:text-white/60 text-xs tracking-[0.15em] uppercase transition-colors"
+                  href="https://www.instagram.com/tek15ca/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="TEK15 on Instagram"
+                  className="text-white/30 hover:text-[#c9a84c] transition-colors duration-200"
                 >
-                  {item}
+                  <FaInstagram size={17} />
                 </a>
-              ))}
+                <a
+                  href="https://www.tiktok.com/@tek15ca"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="TEK15 on TikTok"
+                  className="text-white/30 hover:text-[#c9a84c] transition-colors duration-200"
+                >
+                  <FaTiktok size={16} />
+                </a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61576072532449"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="TEK15 on Facebook"
+                  className="text-white/30 hover:text-[#c9a84c] transition-colors duration-200"
+                >
+                  <FaFacebook size={17} />
+                </a>
+              </div>
             </div>
           </div>
 
