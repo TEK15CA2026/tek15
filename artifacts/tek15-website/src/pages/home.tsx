@@ -182,6 +182,37 @@ export default function Home() {
               Our Services
             </a>
           </div>
+
+          {/* Social icons */}
+          <div className="flex items-center justify-center gap-6 mt-8">
+            <a
+              href="https://www.instagram.com/tek15ca/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TEK15 on Instagram"
+              className="text-white/25 hover:text-[#c9a84c] transition-colors duration-200"
+            >
+              <FaInstagram size={20} />
+            </a>
+            <a
+              href="https://www.tiktok.com/@tek15ca"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TEK15 on TikTok"
+              className="text-white/25 hover:text-[#c9a84c] transition-colors duration-200"
+            >
+              <FaTiktok size={18} />
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=61576072532449"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TEK15 on Facebook"
+              className="text-white/25 hover:text-[#c9a84c] transition-colors duration-200"
+            >
+              <FaFacebook size={20} />
+            </a>
+          </div>
         </div>
 
         {/* Scroll indicator */}
