@@ -5,7 +5,9 @@ import { FaInstagram, FaTiktok, FaFacebook } from "react-icons/fa";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
-  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [formStatus, setFormStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -38,13 +40,22 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-sans">
-
       {/* NAV */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#0a0a0a]/95 backdrop-blur-md border-b border-white/5" : "bg-transparent"}`}>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#0a0a0a]/95 backdrop-blur-md border-b border-white/5" : "bg-transparent"}`}
+      >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <a href="#home" className="flex items-center gap-4">
-            <img src={squareLogoSrc} alt="TEK15" className="h-9 w-9 object-contain rounded-sm" />
-            <img src={wideLogo} alt="TEK15" className="h-7 object-contain hidden sm:block" />
+            <img
+              src={squareLogoSrc}
+              alt="TEK15"
+              className="h-9 w-9 object-contain rounded-sm"
+            />
+            <img
+              src={wideLogo}
+              alt="TEK15"
+              className="h-7 object-contain hidden sm:block"
+            />
           </a>
 
           {/* Desktop nav */}
@@ -73,9 +84,15 @@ export default function Home() {
             aria-label="Toggle menu"
           >
             <div className="flex flex-col gap-1.5 w-6">
-              <span className={`block h-px bg-current transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-              <span className={`block h-px bg-current transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-              <span className={`block h-px bg-current transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+              <span
+                className={`block h-px bg-current transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`}
+              />
+              <span
+                className={`block h-px bg-current transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
+              />
+              <span
+                className={`block h-px bg-current transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`}
+              />
             </div>
           </button>
         </div>
@@ -114,17 +131,20 @@ export default function Home() {
         {/* Radial gold glow */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_60%,rgba(201,168,76,0.07),transparent)]" />
         {/* Grid texture */}
-        <div className="absolute inset-0 opacity-[0.025]" style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)`,
-          backgroundSize: "60px 60px"
-        }} />
+        <div
+          className="absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)`,
+            backgroundSize: "60px 60px",
+          }}
+        />
         {/* Decorative line */}
         <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#c9a84c]/15 to-transparent" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           {/* Eyebrow */}
           <p className="text-[#c9a84c] text-xs tracking-[0.4em] uppercase mb-8 font-light">
-            Automotive Concierge, Consulting, Inspection & Maintenance 
+            Automotive Concierge, Consulting, Inspection & Maintenance
           </p>
 
           {/* Headline */}
@@ -146,12 +166,18 @@ export default function Home() {
 
           {/* Tagline */}
           <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 mb-12">
-            {["Mercedes-Benz", "Porsche", "BMW", "Audi"].map((brand, i, arr) => (
-              <span key={brand} className="flex items-center gap-3">
-                <span className="text-white/40 text-xs sm:text-sm tracking-widest uppercase font-light">{brand}</span>
-                {i < arr.length - 1 && <span className="text-[#c9a84c]/30 text-xs">·</span>}
-              </span>
-            ))}
+            {["Mercedes-Benz", "Porsche", "BMW", "Audi"].map(
+              (brand, i, arr) => (
+                <span key={brand} className="flex items-center gap-3">
+                  <span className="text-white/40 text-xs sm:text-sm tracking-widest uppercase font-light">
+                    {brand}
+                  </span>
+                  {i < arr.length - 1 && (
+                    <span className="text-[#c9a84c]/30 text-xs">·</span>
+                  )}
+                </span>
+              ),
+            )}
           </div>
 
           {/* Credentials badges */}
@@ -241,12 +267,14 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0d0d0d] to-[#0a0a0a]" />
           <div className="relative max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 gap-16 items-start">
-
               {/* Left — image + headline */}
               <div>
-                <p className="text-[#c9a84c] text-xs tracking-[0.4em] uppercase mb-5 font-light">Our Philosophy</p>
+                <p className="text-[#c9a84c] text-xs tracking-[0.4em] uppercase mb-5 font-light">
+                  Our Philosophy
+                </p>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-light leading-tight mb-8">
-                  White-Glove Care.<br />
+                  White-Glove Care.
+                  <br />
                   <span className="text-white/40">No Compromises.</span>
                 </h2>
 
@@ -263,17 +291,38 @@ export default function Home() {
                 {/* Credentials */}
                 <div className="mt-8 flex flex-wrap gap-3">
                   {[
-                    { label: "C.A.L.E Certified", desc: "Canadian Automotive & Licensing Expert" },
-                    { label: "Red Seal 310S", desc: "Interprovincial Standards Program" },
+                    {
+                      label: "C.A.L.E Certified",
+                      desc: "Canadian Automotive & Licensing Expert",
+                    },
+                    {
+                      label: "Red Seal 310S",
+                      desc: "Interprovincial Standards Program",
+                    },
                   ].map(({ label, desc }) => (
-                    <div key={label} className="flex items-start gap-3 border border-[#c9a84c]/20 rounded-sm px-4 py-3 bg-[#c9a84c]/3">
+                    <div
+                      key={label}
+                      className="flex items-start gap-3 border border-[#c9a84c]/20 rounded-sm px-4 py-3 bg-[#c9a84c]/3"
+                    >
                       <div className="mt-0.5 w-5 h-5 rounded-full border border-[#c9a84c]/40 flex items-center justify-center flex-shrink-0">
-                        <svg className="w-2.5 h-2.5 text-[#c9a84c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                        <svg
+                          className="w-2.5 h-2.5 text-[#c9a84c]"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2.5}
+                            d="M5 13l4 4L19 7"
+                          />
                         </svg>
                       </div>
                       <div>
-                        <p className="text-[#c9a84c] text-xs tracking-widest uppercase font-medium">{label}</p>
+                        <p className="text-[#c9a84c] text-xs tracking-widest uppercase font-medium">
+                          {label}
+                        </p>
                         <p className="text-white/30 text-xs mt-0.5">{desc}</p>
                       </div>
                     </div>
@@ -284,13 +333,22 @@ export default function Home() {
               {/* Right — text */}
               <div className="space-y-6 text-white/50 text-sm sm:text-base leading-relaxed font-light md:pt-16">
                 <p>
-                  TEK15 was built on a single belief: owners of exceptional vehicles deserve an equally exceptional level of care. We reject the one-size-fits-all model of traditional automotive service.
+                  TEK15 was built on a single belief: owners of exceptional
+                  vehicles deserve an equally exceptional level of care. We
+                  reject the one-size-fits-all model of traditional automotive
+                  service.
                 </p>
                 <p>
-                  Our approach prioritizes <span className="text-white/80">deep technical mastery</span> — years of hands-on experience with European engineering — paired with radical transparency. You'll always understand exactly what's happening with your vehicle, and why.
+                  Our approach prioritizes{" "}
+                  <span className="text-white/80">deep technical mastery</span>{" "}
+                  — years of hands-on experience with European engineering —
+                  paired with radical transparency. You'll always understand
+                  exactly what's happening with your vehicle, and why.
                 </p>
                 <p>
-                  From routine maintenance to complex diagnostics, every interaction is handled with the precision and discretion that your investment demands.
+                  From routine maintenance to complex diagnostics, every
+                  interaction is handled with the precision and discretion that
+                  your investment demands.
                 </p>
 
                 {/* Interior image */}
@@ -312,9 +370,16 @@ export default function Home() {
                     { value: "OEM", label: "Grade Standards" },
                     { value: "1-on-1", label: "Dedicated Attention" },
                   ].map(({ value, label }) => (
-                    <div key={label} className="border-t border-[#c9a84c]/20 pt-4">
-                      <p className="text-[#c9a84c] text-xl font-semibold mb-1">{value}</p>
-                      <p className="text-white/30 text-xs tracking-wider uppercase">{label}</p>
+                    <div
+                      key={label}
+                      className="border-t border-[#c9a84c]/20 pt-4"
+                    >
+                      <p className="text-[#c9a84c] text-xl font-semibold mb-1">
+                        {value}
+                      </p>
+                      <p className="text-white/30 text-xs tracking-wider uppercase">
+                        {label}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -331,59 +396,125 @@ export default function Home() {
       <section id="services" className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <p className="text-[#c9a84c] text-xs tracking-[0.4em] uppercase mb-4 font-light">What We Offer</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light">Our Services</h2>
+            <p className="text-[#c9a84c] text-xs tracking-[0.4em] uppercase mb-4 font-light">
+              What We Offer
+            </p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light">
+              Our Services
+            </h2>
           </div>
 
           <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
             {[
               {
                 icon: (
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  <svg
+                    className="w-7 h-7"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.2}
+                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                    />
                   </svg>
                 ),
                 title: "Concierge Maintenance",
                 subtitle: "End-to-end service management",
                 description:
                   "We handle every aspect of your vehicle's maintenance schedule — from booking and coordination to quality verification and post-service reporting. You stay informed; we handle the details.",
-                highlights: ["Scheduling & coordination", "Service oversight", "Post-service documentation"],
+                highlights: [
+                  "Scheduling & coordination",
+                  "Service oversight",
+                  "Post-service documentation",
+                ],
               },
               {
                 icon: (
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <svg
+                    className="w-7 h-7"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.2}
+                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.2}
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
                   </svg>
                 ),
                 title: "On-Site Care",
                 subtitle: "Maintenance, diagnostics & repair",
                 description:
                   "We come to you. Routine maintenance, diagnostic scanning, and general repair carried out at your location — minimal disruption, maximum convenience for your schedule.",
-                highlights: ["Routine maintenance", "Diagnostic scanning", "General repair"],
+                highlights: [
+                  "Routine maintenance",
+                  "Diagnostic scanning",
+                  "General repair",
+                ],
               },
               {
                 icon: (
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                  <svg
+                    className="w-7 h-7"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.2}
+                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                    />
                   </svg>
                 ),
                 title: "Premium Inspections",
                 subtitle: "Deep-dive technical reports",
                 description:
                   "Comprehensive pre-purchase or annual inspections delivered as detailed technical reports. Know exactly what you're working with — mechanically, cosmetically, and financially.",
-                highlights: ["120+ point inspection", "Photo documentation", "Vehicle history report & analysis"],
+                highlights: [
+                  "120+ point inspection",
+                  "Photo documentation",
+                  "Vehicle history report & analysis",
+                ],
               },
               {
                 icon: (
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  <svg
+                    className="w-7 h-7"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.2}
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
                   </svg>
                 ),
                 title: "Consulting & Sourcing",
                 subtitle: "Professional vehicle acquisition",
                 description:
                   "Looking to acquire your next European luxury vehicle? We source, evaluate, and negotiate on your behalf — ensuring you acquire the right car at the right price, with full confidence.",
-                highlights: ["Market analysis", "Expert negotiation", "Private & dealer sourcing"],
+                highlights: [
+                  "Market analysis",
+                  "Expert negotiation",
+                  "Private & dealer sourcing",
+                ],
               },
             ].map(({ icon, title, subtitle, description, highlights }) => (
               <div
@@ -394,12 +525,21 @@ export default function Home() {
                 <div className="text-[#c9a84c]/70 group-hover:text-[#c9a84c] transition-colors duration-300 mb-6">
                   {icon}
                 </div>
-                <h3 className="text-white text-lg font-light tracking-wide mb-1">{title}</h3>
-                <p className="text-[#c9a84c]/60 text-xs tracking-widest uppercase mb-5">{subtitle}</p>
-                <p className="text-white/40 text-sm leading-relaxed font-light mb-7">{description}</p>
+                <h3 className="text-white text-lg font-light tracking-wide mb-1">
+                  {title}
+                </h3>
+                <p className="text-[#c9a84c]/60 text-xs tracking-widest uppercase mb-5">
+                  {subtitle}
+                </p>
+                <p className="text-white/40 text-sm leading-relaxed font-light mb-7">
+                  {description}
+                </p>
                 <ul className="space-y-2">
                   {highlights.map((h) => (
-                    <li key={h} className="flex items-center gap-3 text-white/35 text-xs">
+                    <li
+                      key={h}
+                      className="flex items-center gap-3 text-white/35 text-xs"
+                    >
                       <span className="w-1 h-1 rounded-full bg-[#c9a84c]/50 flex-shrink-0" />
                       {h}
                     </li>
@@ -424,11 +564,19 @@ export default function Home() {
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_50%_50%,rgba(201,168,76,0.05),transparent)]" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">
-                <p className="text-[#c9a84c]/60 text-xs tracking-[0.4em] uppercase mb-5 font-light">Precision in every detail</p>
-                <img src={wideLogo} alt="TEK15" className="h-14 sm:h-16 object-contain mx-auto drop-shadow-2xl" />
+                <p className="text-[#c9a84c]/60 text-xs tracking-[0.4em] uppercase mb-5 font-light">
+                  Precision in every detail
+                </p>
+                <img
+                  src={wideLogo}
+                  alt="TEK15"
+                  className="h-14 sm:h-16 object-contain mx-auto drop-shadow-2xl"
+                />
                 <div className="mt-5 flex items-center justify-center gap-4">
                   <div className="h-px w-16 bg-gradient-to-r from-transparent to-[#c9a84c]/30" />
-                  <span className="text-white/20 text-xs tracking-[0.2em] uppercase font-light">TEK15.CA</span>
+                  <span className="text-white/20 text-xs tracking-[0.2em] uppercase font-light">
+                    TEK15.CA
+                  </span>
                   <div className="h-px w-16 bg-gradient-to-l from-transparent to-[#c9a84c]/30" />
                 </div>
               </div>
@@ -445,17 +593,24 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(201,168,76,0.04),transparent)]" />
         <div className="relative max-w-2xl mx-auto">
           <div className="text-center mb-14">
-            <p className="text-[#c9a84c] text-xs tracking-[0.4em] uppercase mb-4 font-light">Get in Touch</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-4">Request a Consultation</h2>
+            <p className="text-[#c9a84c] text-xs tracking-[0.4em] uppercase mb-4 font-light">
+              Get in Touch
+            </p>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light mb-4">
+              Request a Consultation
+            </h2>
             <p className="text-white/35 text-sm font-light leading-relaxed">
-              Complete the form below and a TEK15 specialist will be in touch within 24 hours.
+              Complete the form below and a TEK15 specialist will be in touch
+              within 24 hours.
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="grid sm:grid-cols-2 gap-5">
               <div className="flex flex-col gap-2">
-                <label className="text-white/40 text-xs tracking-[0.15em] uppercase">Full Name</label>
+                <label className="text-white/40 text-xs tracking-[0.15em] uppercase">
+                  Full Name
+                </label>
                 <input
                   type="text"
                   name="name"
@@ -465,7 +620,9 @@ export default function Home() {
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-white/40 text-xs tracking-[0.15em] uppercase">Email Address</label>
+                <label className="text-white/40 text-xs tracking-[0.15em] uppercase">
+                  Email Address
+                </label>
                 <input
                   type="email"
                   name="_replyto"
@@ -477,7 +634,9 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-white/40 text-xs tracking-[0.15em] uppercase">Vehicle</label>
+              <label className="text-white/40 text-xs tracking-[0.15em] uppercase">
+                Vehicle
+              </label>
               <input
                 type="text"
                 name="vehicle"
@@ -488,7 +647,9 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-white/40 text-xs tracking-[0.15em] uppercase">Message</label>
+              <label className="text-white/40 text-xs tracking-[0.15em] uppercase">
+                Message
+              </label>
               <textarea
                 name="message"
                 required
@@ -499,17 +660,23 @@ export default function Home() {
             </div>
 
             {/* Hidden Formspree subject */}
-            <input type="hidden" name="_subject" value="New Consultation Request — TEK15.CA" />
+            <input
+              type="hidden"
+              name="_subject"
+              value="New Consultation Request — TEK15.CA"
+            />
 
             {formStatus === "success" && (
               <div className="border border-[#c9a84c]/30 bg-[#c9a84c]/5 rounded-sm px-5 py-4 text-[#c9a84c] text-sm tracking-wide">
-                Thank you — your request has been received. We'll be in touch shortly.
+                Thank you — your request has been received. We'll be in touch
+                shortly.
               </div>
             )}
 
             {formStatus === "error" && (
               <div className="border border-red-500/30 bg-red-500/5 rounded-sm px-5 py-4 text-red-400 text-sm">
-                Something went wrong. Please try again or email william@tek15.ca directly.
+                Something went wrong. Please try again or email william@tek15.ca
+                directly.
               </div>
             )}
 
@@ -518,7 +685,9 @@ export default function Home() {
               disabled={formStatus === "sending"}
               className="w-full py-4 bg-[#c9a84c] text-black text-xs tracking-[0.25em] uppercase font-semibold hover:bg-[#d4b56a] disabled:opacity-60 disabled:cursor-not-allowed transition-all duration-300 rounded-sm shadow-[0_0_30px_rgba(201,168,76,0.2)]"
             >
-              {formStatus === "sending" ? "Sending…" : "Submit Consultation Request"}
+              {formStatus === "sending"
+                ? "Sending…"
+                : "Submit Consultation Request"}
             </button>
 
             <p className="text-center text-white/20 text-xs font-light tracking-wide">
@@ -534,8 +703,16 @@ export default function Home() {
           {/* Top row */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
             <div className="flex items-center gap-4">
-              <img src={squareLogoSrc} alt="TEK15" className="h-8 w-8 object-contain rounded-sm opacity-60" />
-              <img src={wideLogo} alt="TEK15" className="h-6 object-contain opacity-50" />
+              <img
+                src={squareLogoSrc}
+                alt="TEK15"
+                className="h-8 w-8 object-contain rounded-sm opacity-60"
+              />
+              <img
+                src={wideLogo}
+                alt="TEK15"
+                className="h-6 object-contain opacity-50"
+              />
             </div>
             <div className="flex items-center gap-8">
               <div className="flex items-center gap-6">
@@ -586,14 +763,18 @@ export default function Home() {
           <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex flex-wrap items-center gap-4">
               {["C.A.L.E Certified", "Red Seal 310S"].map((cred) => (
-                <span key={cred} className="text-[#c9a84c]/40 text-xs tracking-widest uppercase flex items-center gap-2">
+                <span
+                  key={cred}
+                  className="text-[#c9a84c]/40 text-xs tracking-widest uppercase flex items-center gap-2"
+                >
                   <span className="w-1 h-1 rounded-full bg-[#c9a84c]/40" />
                   {cred}
                 </span>
               ))}
             </div>
             <p className="text-white/20 text-xs tracking-wide">
-              © {new Date().getFullYear()} TEK15 Automotive Concierge. All rights reserved.
+              © {new Date().getFullYear()} TEK15 Automotive Concierge. All
+              rights reserved.
             </p>
           </div>
         </div>
